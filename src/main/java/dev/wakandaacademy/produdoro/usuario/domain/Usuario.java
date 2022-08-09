@@ -35,6 +35,7 @@ public class Usuario {
 	private Integer quantidadePomodorosPausaCurta = 0;
 
 	public Usuario(@Valid UsuarioNovoRequest usuarioNovo, ConfiguracaoPadrao ConfiguracaoPadrao) {
+		this.idUsuario = UUID.randomUUID();
 		this.email = usuarioNovo.getEmail();
 		this.status = StatusUsuario.FOCO;
 		this.configuracao = new ConfiguracaoUsuario(ConfiguracaoPadrao);
