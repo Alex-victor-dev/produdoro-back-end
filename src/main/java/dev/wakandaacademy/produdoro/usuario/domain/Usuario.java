@@ -2,12 +2,14 @@ package dev.wakandaacademy.produdoro.usuario.domain;
 
 import java.util.UUID;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import dev.wakandaacademy.produdoro.usuario.application.api.UsuarioRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,5 +33,13 @@ public class Usuario {
 	@Builder.Default
 	private Integer quantidadePomodorosPausaCurta = 0;
 
-	
+	public Usuario(@Valid UsuarioRequest usuarioRequest) {
+		this.idUsuario = idUsuario;
+		this.email = email;
+		this.configuracao = configuracao;
+		this.status = status;
+		this.quantidadePomodorosPausaCurta = quantidadePomodorosPausaCurta;
+
+	}
+
 }
